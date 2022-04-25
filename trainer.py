@@ -238,6 +238,8 @@ for key in columns:
 
 for key in columns:
     trainers[key].train()
+    models[key].save_pretrained('./model_' + key)
+    tokenizer.save_pretrained('./model_' + key)
 
 
 
@@ -272,8 +274,7 @@ df_output = pd.DataFrame(predictions)
 
 df_output.to_csv("./submision_file.tsv", sep="\t", index=False)
 
-for key in columns:
-    models[key].save_pretrained('./model_' + key)
-    tokenizer.save_pretrained('./model_' + key)
+#for key in columns:
+    
 
 #!zip -r "./drive/MyDrive/TFG/Sentiment Politics/politics_model_00.zip" "./drive/MyDrive/TFG/Sentiment Politics/politics_model/"
